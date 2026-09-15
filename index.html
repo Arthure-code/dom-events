@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Four DOM events on one page, one card and one script each: input, change, keydown and resize.">
+  <title>DOM Events</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <script defer src="js/uppercase.js"></script>
+  <script defer src="js/decimals.js"></script>
+  <script defer src="js/key.js"></script>
+  <script defer src="js/width.js"></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom shadow-sm mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="#">DOM Events</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link text-dark" href="#uppercase-title">Uppercase</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#decimals-title">Decimals</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#key-title">Key</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#width-title">Width</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container flex-grow-1 pb-5">
+    <div class="text-center">
+      <h1 class="display-4">DOM Events</h1>
+      <p>Four events, four cards, one script each. No library beyond the stylesheet.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title h5" id="uppercase-title">Uppercase as you type</h2>
+            <p class="card-text text-muted">On every <code>input</code> event, the text is copied below in capitals, letter by letter.</p>
+            <div class="bg-light border rounded p-3">
+              <label for="textField" class="form-label">Text to convert</label>
+              <input type="text" class="form-control" id="textField" autocomplete="off">
+              <p id="uppercaseText" class="fw-bold mt-3 mb-0" aria-live="polite"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title h5" id="decimals-title">Two decimal places</h2>
+            <p class="card-text text-muted">On <code>change</code>, the chosen number is shown with two decimals, <code>toFixed(2)</code>: 5.1167 becomes 5.12 and 6 becomes 6.00.</p>
+            <div class="bg-light border rounded p-3">
+              <label for="numberSelect" class="form-label">Number to convert</label>
+              <select id="numberSelect" class="form-select">
+                <option value="1.3333">1.3333</option>
+                <option value="5.1167">5.1167</option>
+                <option value="6">6</option>
+                <option value="12.0022">12.0022</option>
+                <option value="20.2083">20.2083</option>
+              </select>
+              <p id="convertedNumber" class="fw-bold mt-3 mb-0" aria-live="polite"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title h5" id="key-title">Which key was pressed</h2>
+            <p class="card-text text-muted">On <code>keydown</code>, the <code>event.key</code> property names the key, special ones included: ArrowLeft, Enter, Escape.</p>
+            <div class="bg-light border rounded p-3 text-center">
+              <label for="keyField" class="form-label">Click here, then press a key</label>
+              <input type="text" id="keyField" class="form-control text-center" readonly aria-describedby="pressedKey">
+              <p class="mb-0 mt-3"><span id="pressedKey" class="display-4" aria-live="polite">&nbsp;</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title h5" id="width-title">Colour by window width</h2>
+            <p class="card-text text-muted">On <code>resize</code>, <code>window.innerWidth</code> picks the colour: red under 600 px, green under 900, blue under 1200, none above.</p>
+            <div class="bg-light border rounded p-3">
+              <div id="widthBox" class="rounded p-3 text-center fw-bold bg-secondary bg-opacity-25">
+                <span id="windowWidth">…</span> px
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="border-top py-3 text-muted">
+    <div class="container">
+      &copy; 2026 - DOM Events - <a href="LICENSE">Licence</a>
+    </div>
+  </footer>
+  <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
